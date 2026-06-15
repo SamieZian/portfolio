@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=JetBrains+Mono:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#e8edf7;position:relative;
+  background:radial-gradient(700px 400px at 82% -10%,rgba(52,210,238,.18),transparent 60%),
+  radial-gradient(620px 420px at 10% 110%,rgba(167,139,250,.16),transparent 60%),
+  linear-gradient(135deg,#070b16,#0a1124 60%,#0b1530);padding:74px 80px}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(120,140,180,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,140,180,.06) 1px,transparent 1px);background-size:48px 48px;
+  -webkit-mask:radial-gradient(800px 460px at 60% 40%,#000 55%,transparent);mask:radial-gradient(800px 460px at 60% 40%,#000 55%,transparent)}
+.mark{display:flex;align-items:center;gap:16px;position:relative}
+.logo{width:60px;height:60px;border-radius:15px;display:grid;place-items:center;font-family:Sora;font-weight:800;font-size:25px;letter-spacing:-1px;color:#06101f;background:linear-gradient(135deg,#67e8f9,#a78bfa)}
+.dom{font-family:JetBrains Mono;font-size:20px;color:#8fa0bd}
+.eyebrow{font-family:JetBrains Mono;font-size:21px;color:#a78bfa;margin-top:64px;position:relative}
+h1{font-family:Sora;font-weight:800;font-size:62px;line-height:1.05;letter-spacing:-1.5px;margin-top:18px;position:relative}
+.grad{background:linear-gradient(105deg,#67e8f9,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:25px;color:#aab8d2;margin-top:26px;max-width:1000px;position:relative;line-height:1.45}
+.sub b{color:#fff}
+.chips{display:flex;gap:11px;margin-top:46px;position:relative}
+.chip{font-family:JetBrains Mono;font-size:18px;font-weight:500;padding:9px 17px;border-radius:9px;color:#cfe9ff;background:rgba(56,130,246,.1);border:1px solid rgba(103,180,249,.34)}
+.chip.hot{color:#67e8f9;border-color:rgba(34,211,238,.6);background:rgba(34,211,238,.1)}
+</style></head><body>
+<div class="grid"></div>
+<div class="mark"><div class="logo">SH</div><div class="dom">sampathake.in</div></div>
+<div class="eyebrow">Founding Engineer · Senior Software Engineer</div>
+<h1>I build <span class="grad">AI agents</span> and the<br><span class="grad">distributed backend</span> they run on.</h1>
+<div class="sub">MCP platform serving <b>1,000+ organizations</b> · <b>2,000+ daily agent executions</b> · p95 <b>900ms→250ms</b></div>
+<div class="chips"><span class="chip">Python</span><span class="chip">Go</span><span class="chip">FastAPI</span><span class="chip hot">MCP</span><span class="chip hot">LLM Agents</span><span class="chip">AWS</span><span class="chip">GCP</span></div>
+</body></html>
