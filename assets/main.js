@@ -82,7 +82,7 @@
   const items = [
     { ico: '◆', label: 'Work with me', hint: 'consulting', act: () => go('#services') },
     { ico: '✉', label: 'Copy email', hint: 'clipboard', act: copyEmail },
-    { ico: '↗', label: 'View résumé', hint: 'Google Drive', act: () => { window.open('https://drive.google.com/file/d/13DgNvIruzxHMuO-MJf6MaZb0TiLwDXH8/view', '_blank'); closeCmd(); } },
+    { ico: '↗', label: 'View resume', hint: 'Google Drive', act: () => { window.open('https://drive.google.com/file/d/13DgNvIruzxHMuO-MJf6MaZb0TiLwDXH8/view', '_blank'); closeCmd(); } },
     { ico: '▸', label: 'Selected work', hint: 'case studies', act: () => go('#work') },
     { ico: '▸', label: 'Experience', hint: 'career', act: () => go('#experience') },
     { ico: '▸', label: 'Tech stack', hint: 'toolkit', act: () => go('#stack') },
