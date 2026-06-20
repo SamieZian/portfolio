@@ -8,3 +8,6 @@
 
 # logs / temp
 *.log
+
+# private project context (local only — not for the public repo)
+CLAUDE.md

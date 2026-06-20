@@ -359,3 +359,51 @@ section{padding:0 clamp(18px,5vw,46px)}
   *{animation:none!important;scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
 }
+
+/* ---------- architecture diagram ---------- */
+.arch{max-width:var(--maxw);margin:0 auto;padding-top:104px}
+.arch-flow{display:flex;align-items:stretch;justify-content:center;gap:14px;flex-wrap:wrap}
+.arch-node{flex:1 1 0;min-width:150px;max-width:230px;background:var(--surface);border:1px solid var(--line);
+  border-radius:14px;padding:20px 18px;display:flex;flex-direction:column;gap:7px;
+  transition:transform .3s, border-color .3s, background .3s}
+.arch-node:hover{transform:translateY(-4px);border-color:var(--line-2);background:var(--surface-2)}
+.arch-node.accent{border-color:rgba(103,232,249,.35);background:rgba(103,232,249,.05)}
+.arch-node .an-kind{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--violet)}
+.arch-node.accent .an-kind{color:var(--cyan-2)}
+.arch-node b{font-family:"Sora",sans-serif;font-size:17px;font-weight:600}
+.arch-node small{color:var(--muted);font-size:13px;line-height:1.45}
+.arch-arrow{display:flex;align-items:center;color:var(--faint);font-size:22px;flex:0 0 auto}
+.arch-fanout{flex:1.5 1 0;min-width:210px;background:var(--surface);border:1px dashed var(--line-2);
+  border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:11px}
+.arch-fanout .an-kind{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--cyan-2)}
+.af-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.af-grid span{font-family:"JetBrains Mono",monospace;font-size:11.5px;text-align:center;padding:6px 4px;
+  border-radius:7px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--muted)}
+.af-grid span.hot{color:var(--cyan-2);border-color:rgba(103,232,249,.4);background:rgba(103,232,249,.08)}
+.arch-fanout small{color:var(--faint);font-size:12.5px}
+.arch-rail{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.arch-rail span{display:inline-flex;align-items:center;gap:9px;font-family:"JetBrains Mono",monospace;
+  font-size:12.5px;color:var(--muted);padding:8px 15px;border-radius:9px;background:var(--surface);border:1px solid var(--line)}
+.arch-rail i{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex:0 0 auto}
+
+/* ---------- ⌘K command launcher (right-edge, discoverable) ---------- */
+.cmdk-fab{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:55;
+  display:flex;flex-direction:column;align-items:center;gap:11px;cursor:pointer;color:var(--text);
+  background:var(--surface-2);border:1px solid var(--line-2);border-right:none;
+  border-radius:12px 0 0 12px;padding:16px 10px;
+  box-shadow:-8px 0 26px -14px rgba(0,0,0,.7);transition:background .25s, border-color .25s, padding .25s}
+.cmdk-fab:hover{background:#0e1626;border-color:var(--cyan);padding-top:20px;padding-bottom:20px}
+.cmdk-fab svg{width:18px;height:18px;color:var(--cyan-2);flex:0 0 auto}
+.cmdk-fab-label{writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:2px;color:var(--muted)}
+
+/* ---------- responsive: architecture + launcher ---------- */
+@media(max-width:760px){
+  .arch-flow{flex-direction:column;align-items:stretch}
+  .arch-node,.arch-fanout{max-width:none}
+  .arch-arrow{justify-content:center;transform:rotate(90deg)}
+}
+@media(max-width:640px){
+  .cmdk-fab-label{display:none}
+  .cmdk-fab{padding:11px 12px;border-radius:11px 0 0 11px}
+}
