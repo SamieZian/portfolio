@@ -136,15 +136,34 @@
     toastEl._t = setTimeout(() => { toastEl.style.opacity = '0'; toastEl.style.transform = 'translateX(-50%) translateY(20px)'; }, 1800);
   }
 
-  /* ---------- contact form: mailto fallback if Formspree not wired ---------- */
-  const form = $('#contactForm');
-  form.addEventListener('submit', (e) => {
-    if (form.action.includes('YOUR_FORM_ID')) {
-      e.preventDefault();
-      const d = new FormData(form);
-      const subject = encodeURIComponent(`[Portfolio] ${d.get('topic')} — ${d.get('name')}`);
-      const body = encodeURIComponent(`${d.get('message')}\n\n— ${d.get('name')} (${d.get('email')})`);
-      location.href = `mailto:sampat.hake.2000@gmail.com?subject=${subject}&body=${body}`;
+  /* ---------- contact form: AJAX submit to Formspree, inline status ---------- */
+  const form = $('#contactForm'), formNote = $('#formNote');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.innerHTML;
+    formNote.classList.remove('ok', 'err');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        formNote.textContent = "✓ Thanks, your message is in. I'll get back to you soon.";
+        formNote.classList.add('ok');
+        btn.innerHTML = 'Sent ✓';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        formNote.textContent = (data.errors && data.errors[0] && data.errors[0].message)
+          || 'Something went wrong. Email me directly: sampat.hake.2000@gmail.com';
+        formNote.classList.add('err');
+        btn.disabled = false; btn.innerHTML = orig;
+      }
+    } catch {
+      formNote.textContent = 'Network error. Email me directly: sampat.hake.2000@gmail.com';
+      formNote.classList.add('err');
+      btn.disabled = false; btn.innerHTML = orig;
     }
   });
 

@@ -407,3 +407,7 @@ section{padding:0 clamp(18px,5vw,46px)}
   .cmdk-fab-label{display:none}
   .cmdk-fab{padding:11px 12px;border-radius:11px 0 0 11px}
 }
+
+/* contact form submit status */
+.form-note.ok{color:#34e29b}
+.form-note.err{color:#ff6b6b}
