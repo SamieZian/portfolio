@@ -1,31 +1,33 @@
-# sampathake.in — Personal Portfolio
+# sampathake.in
 
-Personal portfolio of **Sampat Hake** — Founding & Senior Software Engineer (AI agents, Model Context Protocol, distributed backend systems).
+Personal site of **Sampat Hake**, backend and AI engineer (SDE 2 at Kotak Mahindra Bank).
 
-Live site: https://sampathake.in
+Live: https://sampathake.in
 
 ## Stack
 
-Hand-built, dependency-free **static site** — plain HTML, CSS, and vanilla JavaScript. No framework, no build step, deploys anywhere instantly.
+- Next.js 16 (App Router, fully static) + TypeScript + Tailwind CSS v4
+- Framer Motion for scroll and UI motion, Lenis for smooth scroll
+- react-three-fiber / three.js for the 3D network hero
+- WebAudio for the optional UI sounds (no audio files)
 
-- `index.html` — all markup and content
-- `assets/styles.css` — styling (dark theme, gradient accents)
-- `assets/main.js` — interactions (⌘K command palette, agent-network canvas, animated counters, scroll reveals, rotating company terminal, back-to-top)
-- `assets/icons/` — official tech & social brand icons (Simple Icons)
-- `assets/profile.jpg` — profile photo
-- `assets/og.png` — social share image (source: `og.html`)
-- `robots.txt`, `sitemap.xml` — SEO
+## Sections
+
+Boot preloader → 3D network hero → company marquee → numbers → pinned **system map**
+(six animated architecture diagrams: loan origination, MCP fan out, LLM router, async workers,
+event driven ERP sync, Lambda fan out) → tagline word reveal → horizontal journey →
+about with glitch portrait → interactive terminal → contact (Formspree) → footer.
+
+All content lives in `src/data/profile.ts`.
 
 ## Run locally
 
 ```bash
-cd portfolio
-python3 -m http.server 8080
-# open http://localhost:8080
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
 ```
-
-> Note: uses absolute `/assets/...` paths, so preview over HTTP (above) — not by opening `index.html` directly.
 
 ## Deploy
 
-Any static host works (Netlify, Cloudflare Pages, Vercel, GitHub Pages). See `DEPLOY.md` for the full GoDaddy-domain walkthrough.
+Vercel builds `main` automatically (`vercel.json` sets the Next.js framework preset).
