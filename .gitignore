@@ -45,3 +45,6 @@ next-env.d.ts
 
 # private project context (local only, not for the public repo)
 CLAUDE.md
+
+# private learnings (local only)
+LEARNINGS.md
